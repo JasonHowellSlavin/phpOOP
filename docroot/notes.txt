@@ -1,0 +1,85 @@
+The Object
+
+An Object is a container of information.
+
+Cloning objects, setting up aliases:
+
+$form = new Form();
+$anotherForm = clone $form // this is a duplicate
+$oneMoreForm = $form  // this creates an alaias
+
+Destroying Objects
+unset($form);
+$form = null;
+
+Obtaining Object Properties
+Direct Access:
+$name = $form->name
+
+Getter Method:
+    create method, call like so:
+    echo "Say something " . $form->getName();
+
+Changing Object Properties:
+    Through reassignment
+    $form->name = "Partybus";
+
+    Setter method
+    $form->setName('Partybus');
+
+    $this within class scope
+
+Creating a new property
+    Through assignment:
+
+    Setter method:
+
+    $this:
+
+
+Destroying Object Property
+    Same as above, but set with null
+    can use unset($form->id);
+
+Other Method Techniques
+    returning null is default
+
+    Setters and Getters
+        setters (mutators)
+        getters (accesors)
+
+    Method chaining can be accomplished by returning $this at the end of the method.
+
+Object Constants
+
+    Const BASE_PATH = '/var/ww/w/ssa/'
+
+    We access object constants like so: self::BASE_PATH  -ot- ClassName::BASE_PATH
+
+    limited to class scope
+
+Magic Methods
+    Automatically called methods
+    Called for a given condition or requirement
+
+
+   Constructor Magic Method
+        is triggered by "new" keyword
+        MM's are preficed with two under bars "__"
+        Na med by the use case
+
+        Constructor's normally accept parameters
+        Good for setting unique values
+
+        Can be seen in my "Pets" class
+
+    Destructor MM:
+        USed for clean up
+
+Dependencies in Objects
+    A hard dependency is one which the object needs to complete its tasks
+    Hard dependencies are included in the constructor -> constructor injection
+
+Static Class Properties and Methods
+    Static declaration: "Single value for property at any given time. One property of a given value at any time"
+    Singleton: Single instance of an object at a run time.
