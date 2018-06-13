@@ -13,26 +13,19 @@ require './Classes/Form/Form.php';
 
 class CardController
 {
-    public $config = require './Config/config.php';
-
-
-    private function buildForm ()
-    {
-        $form = new Form($this->config['form1'], '/cards');
-        $form->getForm();
-    }
-
-
-
-
     public function init()
     {
+        $config = require './Config/config.php';
         $view = new View();
-        $pdo = ObjectUtility::getDb($this->config);
+        $pdo = ObjectUtility::getDb($config);
         $session = ObjectUtility::getSession();
 
-        $this->buildForm();
-        
+        $formToUse = $config['form1'];
+        $formAction = '/cards';
+        $form = new Form($formToUse, $formAction);
+
+        $form->getForm();
+
         $model = new CardModel($pdo);
         $results = $model->getAllCards();
         $view->setResults($results);
