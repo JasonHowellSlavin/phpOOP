@@ -9,11 +9,13 @@
 define('INPUTS', __DIR__ . '/Inputs/');
 require INPUTS . 'Submit.php';
 require INPUTS . 'Text.php';
+require INPUTS . 'Checkbox.php';
 
 class Form
 {
     public $fields = [];
     private $action;
+    private $formNames = [];
 
     /**
      * Form constructor.
@@ -48,7 +50,15 @@ class Form
             if (strpos($input,'text') !== false) {
                 $text = new Text();
                 $textInput = $text->setLabelFor($settings['labelFor'])->setLabelText($settings['labelText'])->getTextInput();
+                array_push($this->formNames, $settings['labelText']);
                 array_push($this->fields, $textInput);
+            }
+
+            if (strpos($input, 'checkbox') !== false) {
+                $checkbox = new Checkbox();
+                $checkboxInput = $checkbox->setLabelFor($settings['labelFor'])->setLabelText($settings['labelText'])->getCheckboxInput();
+                array_push($this->formNames, $settings['labelText']);
+                array_push($this->fields, $checkboxInput);
             }
 
             if ($input === 'submit') {
@@ -70,5 +80,9 @@ class Form
         }
 
         echo $formStart . $inputs . $formEnd;
+    }
+
+    public function getFormNames () {
+        return $this->formNames;
     }
 }

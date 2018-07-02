@@ -13,8 +13,8 @@ return [
     ],
     'form1' => [
         'text' => [
-            'labelFor' => 'image-path',
-            'labelText' => 'image-path',
+            'labelFor' => 'media-path',
+            'labelText' => 'media-path',
         ],
         'text1' => [
             'labelFor' => 'title',
@@ -23,6 +23,10 @@ return [
         'text2' => [
             'labelFor' => 'text',
             'labelText' => 'text',
+        ],
+        'checkbox1' => [
+            'labelFor' => 'isVideo',
+            'labelText' => 'video',
         ],
         'submit' => ['value' => 'sumbit'],
     ]

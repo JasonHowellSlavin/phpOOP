@@ -1,0 +1,43 @@
+:root {
+    --double-padding: 20px;
+    --standard-padding: 10px;
+    --half-padding: 5px;
+}
+
+article {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: var(--standard-padding);
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #118e8e;
+    margin-bottom: 0;
+}
+
+label, form input[type="submit"] {
+     margin-top: var(--standard-padding);
+ }
+
+form label {
+    margin-bottom: var(--half-padding);
+}
+
+img {
+    margin: var(--standard-padding);
+    max-width: 300px;
+    max-height: 200px;
+}

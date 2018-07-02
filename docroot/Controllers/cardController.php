@@ -13,10 +13,23 @@ require './Classes/Form/Form.php';
 
 class CardController
 {
+    private $formNames = [];
+
+    private function handleFormSubmit ($model)
+    {
+        if ($_SERVER["REQUEST_METHOD"] == "POST" )
+        {
+            echo 'post' . print_r($_POST);
+            echo 'form names' . print_r($this->formNames);
+
+            $model->submitNewCard($_POST);
+
+        }
+    }
+
     public function init()
     {
         $config = require './Config/config.php';
-        $view = new View();
         $pdo = ObjectUtility::getDb($config);
         $session = ObjectUtility::getSession();
 
@@ -24,17 +37,15 @@ class CardController
         $formAction = '/cards';
         $form = new Form($formToUse, $formAction);
 
-        $form->getForm();
+        $this->formNames = $form->getFormNames();
 
         $model = new CardModel($pdo);
         $results = $model->getAllCards();
+
+        $view = new View($form);
         $view->setResults($results);
         $view->render('Card', $results);
 
-
-        if ($_SERVER["REQUEST_METHOD"] == "POST" )
-        {
-            echo 'post' . print_r($_POST);
-        }
+        $this->handleFormSubmit($model);
     }
 }
