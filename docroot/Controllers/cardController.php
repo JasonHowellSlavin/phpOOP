@@ -6,11 +6,6 @@
  * Time: 9:06 AM
  */
 
-require './Classes/ObjectUtility.php';
-require './Classes/Model/CardModel.php';
-require './Views/View.php';
-require './Classes/Form/Form.php';
-
 class CardController
 {
     private $formNames = [];

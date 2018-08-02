@@ -3,6 +3,9 @@
 require 'Controllers/cardController.php';
 define('CLASSES', __DIR__ . '/Classes/');
 
+require 'Loader.php';
+Loader::init();
+
 $request_uri = explode('?', $_SERVER['REQUEST_URI'], 2);
 
 switch ($request_uri[0]) {

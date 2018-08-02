@@ -10,7 +10,7 @@
  */
 require 'Session.php';
 
-class ObjectUtility
+final class ObjectUtility
 {
     public static $db;
     public static $session;

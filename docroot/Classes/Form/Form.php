@@ -6,11 +6,6 @@
  * Time: 2:08 PM
  */
 
-define('INPUTS', __DIR__ . '/Inputs/');
-require INPUTS . 'Submit.php';
-require INPUTS . 'Text.php';
-require INPUTS . 'Checkbox.php';
-
 class Form
 {
     public $fields = [];

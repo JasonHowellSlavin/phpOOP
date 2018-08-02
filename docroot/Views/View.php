@@ -6,9 +6,6 @@
  * Time: 2:39 PM
  */
 define('LAYOUT', './Source/Templates/');
-require './Classes/Cards/BaseCard.php';
-require './Classes/Cards/ImageCard.php';
-require './Classes/Cards/VideoCard.php';
 
 class View
 {
